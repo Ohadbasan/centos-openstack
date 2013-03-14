@@ -177,16 +177,6 @@ cp -r /root/openstackLiveFiles /home/liveuser
 #    patch -d /usr/share/ovirt-engine/scripts < "$patch"
 #done
 
-#settings up vdsm to use a dummy nic
-#cp /home/liveuser/openstackLiveFiles/50-vdsm-conf-fake-nic.conf /etc/ovirt-host-deploy.conf.d/
-#echo '10.0.0.1 livecd.localdomain localdomain' >> /etc/hosts
-
-#copying plugin
-#cp /home/liveuser/openstackLiveFiles/ovirt_live_101.py /usr/share/ovirt-engine/scripts/plugins/
-
-#copying network files
-#cp /home/liveuser/openstackLiveFiles/etc/sysconfig/network-scripts/* /etc/sysconfig/network-scripts/
-
 # remove folders/files that use a lot of diskspace
 # and are not really needed for LiveCD
 rm -rf /usr/share/doc/openafs-*
@@ -196,9 +186,6 @@ rm -rf /usr/share/doc/testdisk-*
 #echo 'blacklist iTCO_wdt' >> /etc/modprobe.d/blacklist.conf
 #echo 'blacklist iTCO_vendor_support' >> /etc/modprobe.d/blacklist.conf
 sed -i 's/\#WDMDOPTS/WDMDOPTS/g' /etc/sysconfig/wdmd
-
-# Manipulate fqdn validation, so that it is possible to setup with answer file
-#sed -i 's/raise Exception(output_messages.ERR_EXP_VALIDATE_PARAM % param.getKey("CONF_NAME"))/logging.debug("Failed to validate %s with value %s",param,paramValue)/g' /usr/share/ovirt-engine/scripts/engine-setup.py
 
 #setting up wallpaper
 gconftool-2 -t str -s /desktop/gnome/background/picture_filename "/home/liveuser/openstackLiveFiles/images/openstackwallpaper1.png"
