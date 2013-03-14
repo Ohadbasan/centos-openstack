@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Version=1.0
+Name=packstack
+Name[en_US]=packstack
+Exec=/usr/bin/gnome-terminal -e "bash -c /home/liveuser/openstackLiveFiles/setup.sh;bash"
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=5
+Icon=/home/openstackuser/openstackLiveFiles/images/OPENSTACK-128x128.jpg
+
